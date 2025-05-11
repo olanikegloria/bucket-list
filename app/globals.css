@@ -1,0 +1,774 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 325 90% 75%;
+    --primary-foreground: 355 100% 97%;
+    --secondary: 270 75% 75%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 325 90% 75%;
+    --radius: 1rem;
+
+    /* Hello Kitty theme colors */
+    --hello-kitty-pink: 330 100% 84%;
+    --hello-kitty-light-pink: 330 100% 94%;
+    --hello-kitty-red: 350 100% 60%;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 0 0% 95%;
+    --card: 24 9.8% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 325 90% 75%;
+    --primary-foreground: 355 100% 97%;
+    --secondary: 270 75% 75%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 325 90% 75%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-color: hsl(var(--hello-kitty-light-pink));
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23f9a8d4' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+  }
+}
+
+/* Hello Kitty Theme Styles */
+.hello-kitty-bg {
+  background-color: hsl(var(--hello-kitty-light-pink));
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f472b6' fill-opacity='0.15'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.scrapbook-bg {
+  background-color: #f5f3ff;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23c4b5fd' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.adventure-bg {
+  background-color: #fdf2f8;
+  background-image: url("data:image/svg+xml,%3Csvg width='44' height='12' viewBox='0 0 44 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 12v-2L0 0v10l4 2h16zm18 0l4-2V0L22 10v2h16zM20 0v8L4 0h16zm18 0L22 8V0h16z' fill='%23f9a8d4' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.countdown-bg {
+  background-color: #fbcfe8;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f472b6' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Floating elements */
+.floating {
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.floating-slow {
+  animation-name: floating;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.floating-fast {
+  animation-name: floating;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.delay-75 {
+  animation-delay: 75ms;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-150 {
+  animation-delay: 150ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 15px);
+  }
+  100% {
+    transform: translate(0, 0px);
+  }
+}
+
+/* Update the bounce animation to be more natural */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(var(--rotation, 0deg));
+  }
+}
+
+.animate-bounce {
+  --rotation: 0deg;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce 3s infinite;
+}
+
+.animate-bounce-fast {
+  animation: bounce 1.5s infinite;
+}
+
+/* Ribbon styles */
+.ribbon {
+  position: absolute;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.ribbon-top-right {
+  top: 20px;
+  right: 20px;
+  transform: rotate(15deg);
+}
+
+.ribbon-top-left {
+  top: 30px;
+  left: 20px;
+  transform: rotate(-15deg);
+}
+
+.ribbon-bottom-right {
+  bottom: 30px;
+  right: 40px;
+  transform: rotate(-10deg);
+}
+
+.ribbon-bottom-left {
+  bottom: 40px;
+  left: 30px;
+  transform: rotate(10deg);
+}
+
+/* Balloon styles */
+.balloon {
+  position: absolute;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.balloon-top-right {
+  top: 50px;
+  right: 50px;
+}
+
+.balloon-top-left {
+  top: 70px;
+  left: 40px;
+}
+
+.balloon-bottom-right {
+  bottom: 60px;
+  right: 70px;
+}
+
+.balloon-bottom-left {
+  bottom: 80px;
+  left: 60px;
+}
+
+/* Hello Kitty Nav */
+.hello-kitty-nav {
+  background-color: white;
+  border-radius: 9999px;
+  padding: 0.5rem;
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+  margin: 0 auto;
+  width: 90%;
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.hello-kitty-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 0.5rem;
+  border-radius: 9999px;
+  color: #db2777;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.hello-kitty-nav-item:hover {
+  background-color: #fce7f3;
+}
+
+.hello-kitty-nav-item.active {
+  background-color: #fbcfe8;
+  color: #be185d;
+  font-weight: 600;
+}
+
+.hello-kitty-nav-item svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Cute UI Components */
+.cute-shadow {
+  box-shadow: 0 4px 14px rgba(255, 105, 180, 0.3);
+}
+
+.cute-border {
+  border: 2px solid #f9a8d4;
+  border-radius: var(--radius);
+}
+
+.cute-input {
+  @apply border-2 border-pink-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent;
+}
+
+.cute-button {
+  @apply bg-pink-400 hover:bg-pink-500 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1;
+}
+
+.cute-card {
+  @apply bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border-2 border-pink-200;
+}
+
+.cute-title {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500 font-bold;
+}
+
+.cute-nav-item {
+  @apply px-4 py-2 rounded-full text-pink-700 hover:bg-pink-100 transition-colors duration-200;
+}
+
+.cute-nav-item.active {
+  @apply bg-pink-100 font-bold;
+}
+
+.cute-badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-pink-100 text-pink-800;
+}
+
+.cute-tag {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800 m-1;
+}
+
+.cute-checkbox {
+  @apply h-5 w-5 text-pink-500 rounded-full focus:ring-pink-400;
+}
+
+.cute-radio {
+  @apply h-5 w-5 text-pink-500 focus:ring-pink-400;
+}
+
+.cute-select {
+  @apply border-2 border-pink-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent;
+}
+
+.cute-textarea {
+  @apply border-2 border-pink-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent;
+}
+
+.cute-switch {
+  @apply h-5 w-10 text-pink-500 rounded-full focus:ring-pink-400;
+}
+
+.cute-slider {
+  @apply h-2 rounded-full bg-pink-200;
+}
+
+.cute-slider-thumb {
+  @apply h-5 w-5 rounded-full bg-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-400;
+}
+
+.cute-progress {
+  @apply h-2 rounded-full bg-pink-200;
+}
+
+.cute-progress-value {
+  @apply h-2 rounded-full bg-pink-500;
+}
+
+.cute-tooltip {
+  @apply bg-pink-500 text-white rounded-lg px-3 py-1 text-sm;
+}
+
+.cute-alert {
+  @apply bg-pink-100 border-l-4 border-pink-500 text-pink-700 p-4 rounded-r-lg;
+}
+
+.cute-alert-icon {
+  @apply h-5 w-5 text-pink-500;
+}
+
+.cute-alert-title {
+  @apply text-lg font-medium text-pink-800;
+}
+
+.cute-alert-description {
+  @apply text-sm text-pink-700;
+}
+
+.cute-toast {
+  @apply bg-white border-l-4 border-pink-500 text-pink-700 p-4 rounded-r-lg shadow-lg;
+}
+
+.cute-toast-icon {
+  @apply h-5 w-5 text-pink-500;
+}
+
+.cute-toast-title {
+  @apply text-lg font-medium text-pink-800;
+}
+
+.cute-toast-description {
+  @apply text-sm text-pink-700;
+}
+
+.cute-drawer {
+  @apply bg-white border-r-2 border-pink-200 h-full;
+}
+
+.cute-drawer-title {
+  @apply text-lg font-medium text-pink-800;
+}
+
+.cute-drawer-description {
+  @apply text-sm text-pink-700;
+}
+
+.cute-modal {
+  @apply bg-white rounded-2xl p-6 shadow-lg border-2 border-pink-200;
+}
+
+.cute-modal-title {
+  @apply text-lg font-medium text-pink-800;
+}
+
+.cute-modal-description {
+  @apply text-sm text-pink-700;
+}
+
+.cute-popover {
+  @apply bg-white rounded-2xl p-4 shadow-lg border-2 border-pink-200;
+}
+
+.cute-popover-title {
+  @apply text-lg font-medium text-pink-800;
+}
+
+.cute-popover-description {
+  @apply text-sm text-pink-700;
+}
+
+.cute-menu {
+  @apply bg-white rounded-2xl p-2 shadow-lg border-2 border-pink-200;
+}
+
+.cute-menu-item {
+  @apply px-4 py-2 rounded-xl text-pink-700 hover:bg-pink-100 transition-colors duration-200;
+}
+
+.cute-menu-item.active {
+  @apply bg-pink-100 font-bold;
+}
+
+.cute-menu-item-icon {
+  @apply h-5 w-5 text-pink-500;
+}
+
+.cute-menu-item-title {
+  @apply text-sm font-medium text-pink-800;
+}
+
+.cute-menu-item-description {
+  @apply text-xs text-pink-700;
+}
+
+.cute-menu-item-shortcut {
+  @apply text-xs text-pink-500;
+}
+
+.cute-menu-separator {
+  @apply h-px bg-pink-200 my-2;
+}
+
+.cute-menu-label {
+  @apply px-4 py-2 text-xs font-medium text-pink-500;
+}
+
+.cute-menu-checkbox {
+  @apply h-4 w-4 text-pink-500 rounded-full focus:ring-pink-400;
+}
+
+.cute-menu-radio {
+  @apply h-4 w-4 text-pink-500 focus:ring-pink-400;
+}
+
+.cute-menu-switch {
+  @apply h-4 w-8 text-pink-500 rounded-full focus:ring-pink-400;
+}
+
+.cute-menu-slider {
+  @apply h-1 rounded-full bg-pink-200;
+}
+
+.cute-menu-slider-thumb {
+  @apply h-4 w-4 rounded-full bg-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-400;
+}
+
+.cute-menu-progress {
+  @apply h-1 rounded-full bg-pink-200;
+}
+
+.cute-menu-progress-value {
+  @apply h-1 rounded-full bg-pink-500;
+}
+
+.cute-menu-tooltip {
+  @apply bg-pink-500 text-white rounded-lg px-2 py-1 text-xs;
+}
+
+.cute-menu-alert {
+  @apply bg-pink-100 border-l-4 border-pink-500 text-pink-700 p-2 rounded-r-lg;
+}
+
+.cute-menu-alert-icon {
+  @apply h-4 w-4 text-pink-500;
+}
+
+.cute-menu-alert-title {
+  @apply text-xs font-medium text-pink-800;
+}
+
+.cute-menu-alert-description {
+  @apply text-xs text-pink-700;
+}
+
+.cute-menu-toast {
+  @apply bg-white border-l-4 border-pink-500 text-pink-700 p-2 rounded-r-lg shadow-lg;
+}
+
+.cute-menu-toast-icon {
+  @apply h-4 w-4 text-pink-500;
+}
+
+.cute-menu-toast-title {
+  @apply text-xs font-medium text-pink-800;
+}
+
+.cute-menu-toast-description {
+  @apply text-xs text-pink-700;
+}
+
+.cute-menu-drawer {
+  @apply bg-white border-r-2 border-pink-200 h-full;
+}
+
+.cute-menu-drawer-title {
+  @apply text-xs font-medium text-pink-800;
+}
+
+.cute-menu-drawer-description {
+  @apply text-xs text-pink-700;
+}
+
+.cute-menu-modal {
+  @apply bg-white rounded-2xl p-4 shadow-lg border-2 border-pink-200;
+}
+
+.cute-menu-modal-title {
+  @apply text-xs font-medium text-pink-800;
+}
+
+.cute-menu-modal-description {
+  @apply text-xs text-pink-700;
+}
+
+.cute-menu-popover {
+  @apply bg-white rounded-2xl p-2 shadow-lg border-2 border-pink-200;
+}
+
+.cute-menu-popover-title {
+  @apply text-xs font-medium text-pink-800;
+}
+
+.cute-menu-popover-description {
+  @apply text-xs text-pink-700;
+}
+
+.cute-menu-menu {
+  @apply bg-white rounded-2xl p-1 shadow-lg border-2 border-pink-200;
+}
+
+.cute-menu-menu-item {
+  @apply px-2 py-1 rounded-xl text-pink-700 hover:bg-pink-100 transition-colors duration-200;
+}
+
+.cute-menu-menu-item.active {
+  @apply bg-pink-100 font-bold;
+}
+
+.cute-menu-menu-item-icon {
+  @apply h-4 w-4 text-pink-500;
+}
+
+.cute-menu-menu-item-title {
+  @apply text-xs font-medium text-pink-800;
+}
+
+.cute-menu-menu-item-description {
+  @apply text-xs text-pink-700;
+}
+
+.cute-menu-menu-item-shortcut {
+  @apply text-xs text-pink-500;
+}
+
+.cute-menu-menu-separator {
+  @apply h-px bg-pink-200 my-1;
+}
+
+.cute-menu-menu-label {
+  @apply px-2 py-1 text-xs font-medium text-pink-500;
+}
+
+.cute-menu-menu-checkbox {
+  @apply h-3 w-3 text-pink-500 rounded-full focus:ring-pink-400;
+}
+
+.cute-menu-menu-radio {
+  @apply h-3 w-3 text-pink-500 focus:ring-pink-400;
+}
+
+.cute-menu-menu-switch {
+  @apply h-3 w-6 text-pink-500 rounded-full focus:ring-pink-400;
+}
+
+.cute-menu-menu-slider {
+  @apply h-1 rounded-full bg-pink-200;
+}
+
+.cute-menu-menu-slider-thumb {
+  @apply h-3 w-3 rounded-full bg-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-400;
+}
+
+.cute-menu-menu-progress {
+  @apply h-1 rounded-full bg-pink-200;
+}
+
+.cute-menu-menu-progress-value {
+  @apply h-1 rounded-full bg-pink-500;
+}
+
+.cute-menu-menu-tooltip {
+  @apply bg-pink-500 text-white rounded-lg px-1 py-0.5 text-xs;
+}
+
+.cute-menu-menu-alert {
+  @apply bg-pink-100 border-l-4 border-pink-500 text-pink-700 p-1 rounded-r-lg;
+}
+
+.cute-menu-menu-alert-icon {
+  @apply h-3 w-3 text-pink-500;
+}
+
+.cute-menu-menu-alert-title {
+  @apply text-xs font-medium text-pink-800;
+}
+
+.cute-menu-menu-alert-description {
+  @apply text-xs text-pink-700;
+}
+
+.cute-menu-menu-toast {
+  @apply bg-white border-l-4 border-pink-500 text-pink-700 p-1 rounded-r-lg shadow-lg;
+}
+
+.cute-menu-menu-toast-icon {
+  @apply h-3 w-3 text-pink-500;
+}
+
+.cute-menu-menu-toast-title {
+  @apply text-xs font-medium text-pink-800;
+}
+
+.cute-menu-menu-toast-description {
+  @apply text-xs text-pink-700;
+}
+
+.cute-menu-menu-drawer {
+  @apply bg-white border-r-2 border-pink-200 h-full;
+}
+
+.cute-menu-menu-drawer-title {
+  @apply text-xs font-medium text-pink-800;
+}
+
+.cute-menu-menu-drawer-description {
+  @apply text-xs text-pink-700;
+}
+
+.cute-menu-menu-modal {
+  @apply bg-white rounded-2xl p-2 shadow-lg border-2 border-pink-200;
+}
+
+.cute-menu-menu-modal-title {
+  @apply text-xs font-medium text-pink-800;
+}
+
+.cute-menu-menu-modal-description {
+  @apply text-xs text-pink-700;
+}
+
+.cute-menu-menu-popover {
+  @apply bg-white rounded-2xl p-1 shadow-lg border-2 border-pink-200;
+}
+
+.cute-menu-menu-popover-title {
+  @apply text-xs font-medium text-pink-800;
+}
+
+.cute-menu-menu-popover-description {
+  @apply text-xs text-pink-700;
+}
+
+.cute-menu-menu-menu {
+  @apply bg-white rounded-2xl p-0.5 shadow-lg border-2 border-pink-200;
+}
+
+.cute-menu-menu-menu-item {
+  @apply px-1 py-0.5 rounded-xl text-pink-700 hover:bg-pink-100 transition-colors duration-200;
+}
+
+.cute-menu-menu-menu-item.active {
+  @apply bg-pink-100 font-bold;
+}
+
+.cute-menu-menu-menu-item-icon {
+  @apply h-3 w-3 text-pink-500;
+}
+
+.cute-menu-menu-menu-item-title {
+  @apply text-xs font-medium text-pink-800;
+}
+
+.cute-menu-menu-menu-item-description {
+  @apply text-xs text-pink-700;
+}
+
+.cute-menu-menu-menu-item-shortcut {
+  @apply text-xs text-pink-500;
+}
+
+.cute-menu-menu-menu-separator {
+  @apply h-px bg-pink-200 my-0.5;
+}
+
+.cute-menu-menu-menu-label {
+  @apply px-1 py-0.5 text-xs font-medium text-pink-500;
+}
+
+.cute-menu-menu-menu-checkbox {
+  @apply h-2 w-2 text-pink-500 rounded-full focus:ring-pink-400;
+}
+
+.cute-menu-menu-menu-radio {
+  @apply h-2 w-2 text-pink-500 focus:ring-pink-400;
+}
+
+.cute-menu-menu-menu-switch {
+  @apply h-2 w-4 text-pink-500 rounded-full focus:ring-pink-400;
+}
+
+.cute-menu-menu-menu-slider {
+  @apply h-0.5 rounded-full bg-pink-200;
+}
+
+.cute-menu-menu-menu-slider-thumb {
+  @apply h-2 w-2 rounded-full bg-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-400;
+}
+
+.cute-menu-menu-menu-progress {
+  @apply h-0.5 rounded-full bg-pink-200;
+}
+
+.cute-menu-menu-menu-progress-value {
+  @apply h-0.5 rounded-full bg-pink-500;
+}
+
+.cute-menu-menu-menu-tooltip {
+  @apply bg-pink-500 text-white rounded-lg px-0.5 py-0.5 text-xs;
+}
+
+.cute-menu-menu-menu-alert {
+  @apply bg-pink-100 border-l-4 border-pink-500 text-pink-700 p-0.5 rounded-r-lg;
+}
+
+/* Add these styles to increase z-index for dropdowns */
+.dropdown-content,
+[data-radix-popper-content-wrapper],
+[role="dialog"],
+[role="menu"],
+[role="listbox"],
+[role="tooltip"],
+[role="combobox"] {
+  z-index: 50 !important;
+}
+
